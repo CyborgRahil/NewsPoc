@@ -1,0 +1,1 @@
+include ':app', ':data', ':data', ':domain', ':cache', ':remote', ':presentation', ':presentation', ':instantapp'
