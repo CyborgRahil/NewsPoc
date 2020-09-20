@@ -1,12 +1,12 @@
 package com.rahil.newspoc.ui.news
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.AdapterView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.rahil.newspoc.R
 import dagger.android.AndroidInjection
 import com.rahil.newspoc.presentation.ViewModelFactory
@@ -59,9 +59,9 @@ class NewsActivity : AppCompatActivity() {
 
     private fun fetchNewsSpinnerItem(position: Int) {
         when (position) {
-            0 -> newsViewModel.fetchNews(NewsConstant.NYTIMES)
+            0 -> newsViewModel.fetchNews(NewsConstant.BBC)
             1 -> newsViewModel.fetchNews(NewsConstant.CNN)
-            2 -> newsViewModel.fetchNews(NewsConstant.BBC)
+            2 -> newsViewModel.fetchNews(NewsConstant.NYTIMES)
         }
     }
 
@@ -135,9 +135,9 @@ class NewsActivity : AppCompatActivity() {
 
     private fun fetchNewsUsingSpinnerSelection() {
         when (newsSpinnerList.selectedItemPosition) {
-            0 -> newsViewModel.fetchNews(NewsConstant.NYTIMES)
+            0 -> newsViewModel.fetchNews(NewsConstant.BBC)
             1 -> newsViewModel.fetchNews(NewsConstant.CNN)
-            2 -> newsViewModel.fetchNews(NewsConstant.BBC)
+            2 -> newsViewModel.fetchNews(NewsConstant.NYTIMES)
         }
     }
 

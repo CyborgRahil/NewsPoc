@@ -1,13 +1,14 @@
 package com.rahil.newspoc.news
 
-import android.support.test.espresso.Espresso
-import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.contrib.RecyclerViewActions
-import android.support.test.espresso.matcher.ViewMatchers.*
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
+import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.rule.ActivityTestRule
+import androidx.test.runner.AndroidJUnit4
+import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
 import com.rahil.newspoc.R
 import io.reactivex.Flowable
@@ -70,7 +71,7 @@ class NewsActivityTest {
     }
 
     private fun stubNewsRepositoryGetNewss(single: Flowable<List<News>>) {
-        whenever(TestApplication.appComponent().newsRepository().getNewsList("cnn"))
+        whenever(TestApplication.appComponent().newsRepository().getNewsList("bbc"))
                 .thenReturn(single)
     }
 

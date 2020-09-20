@@ -3,7 +3,7 @@ package com.rahil.newspoc.test
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
-import android.support.test.runner.AndroidJUnitRunner
+import androidx.test.runner.AndroidJUnitRunner
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers
 

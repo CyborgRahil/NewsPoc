@@ -1,6 +1,6 @@
 package com.rahil.newspoc.cache.dao
 
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import com.rahil.newspoc.cache.db.NewsDatabase
 import com.rahil.newspoc.cache.test.factory.NewsFactory
 import org.junit.After

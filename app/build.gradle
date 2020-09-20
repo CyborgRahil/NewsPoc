@@ -47,8 +47,6 @@ android {
         abortOnError false
         ignoreWarnings true
     }
-
-    buildToolsVersion '27.0.3'
 }
 
 kapt {
@@ -78,7 +76,6 @@ dependencies {
     implementation mobileUiDependencies.rxKotlin
     implementation mobileUiDependencies.androidAnnotations
     implementation mobileUiDependencies.androidSupportV4
-    implementation mobileUiDependencies.androidSupportV13
     implementation mobileUiDependencies.appCompatV7
     implementation mobileUiDependencies.supportRecyclerView
     implementation mobileUiDependencies.supportDesign
@@ -87,44 +84,25 @@ dependencies {
     implementation mobileUiDependencies.glide
     implementation mobileUiDependencies.dagger
     implementation mobileUiDependencies.daggerSupport
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation presentationDependencies.archRuntime
-    implementation presentationDependencies.archExtensions
-    implementation "android.arch.persistence.room:rxjava2:1.1.1"
-    kapt presentationDependencies.archCompiler
+    implementation mobileUiDependencies.constraintLayout
+    implementation mobileUiDependencies.roomRuntime
+    implementation mobileUiDependencies.roomRxJava
+    implementation mobileUiDependencies.lifeCycleExtension
+    kapt mobileUiDependencies.roomCompiler
 
     testImplementation mobileUiTestDependencies.kotlinJUnit
 
     kapt mobileUiDependencies.daggerCompiler
     kapt mobileUiDependencies.daggerProcessor
-    compileOnly mobileUiDependencies.glassfishAnnotation
 
     // Instrumentation test dependencies
     androidTestImplementation mobileUiTestDependencies.junit
     androidTestImplementation mobileUiTestDependencies.mockito
     androidTestImplementation mobileUiTestDependencies.mockitoAndroid
-    androidTestImplementation (mobileUiTestDependencies.espressoCore) {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    androidTestImplementation (mobileUiTestDependencies.androidRunner) {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    androidTestImplementation (mobileUiTestDependencies.androidRules) {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    androidTestImplementation (mobileUiTestDependencies.espressoIntents) {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-    androidTestImplementation(mobileUiTestDependencies.espressoContrib) {
-        exclude module: 'appcompat'
-        exclude module: 'appcompat-v7'
-        exclude module: 'support-v4'
-        exclude module: 'support-v13'
-        exclude module: 'support-annotations'
-        exclude module: 'recyclerview-v7'
-        exclude module: 'design'
-    }
-
+    androidTestImplementation mobileUiTestDependencies.espressoCore
+    androidTestImplementation mobileUiTestDependencies.espressoContrib
+    androidTestImplementation mobileUiTestDependencies.supportRunner
+    androidTestImplementation mobileUiTestDependencies.supportRules
     kaptTest mobileUiDependencies.daggerCompiler
     kaptAndroidTest mobileUiDependencies.daggerCompiler
 }

@@ -42,8 +42,6 @@ android {
         disable 'IconDensities'             //For testing purpose. This is safe to remove.
         disable 'IconMissingDensityFolder'  //For testing purpose. This is safe to remove.
     }
-
-    buildToolsVersion '27.0.3'
 }
 
 dependencies {
@@ -66,6 +64,6 @@ dependencies {
     testImplementation cacheTestDependencies.mockito
     testImplementation cacheTestDependencies.assertj
     testImplementation cacheTestDependencies.robolectric
-    testImplementation cacheTestDependencies.archTesting
+  //  testImplementation cacheTestDependencies.archTesting
     testImplementation cacheTestDependencies.roomTesting
 }

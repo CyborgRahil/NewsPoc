@@ -13,22 +13,22 @@ import javax.inject.Singleton
 open class PreferencesHelper @Inject constructor(context: Context) {
 
     companion object {
-        private val PREF_BUFFER_PACKAGE_NAME = "com.rahil.newspoc.preferences"
+        private val PREF_NEWS_APP_PACKAGE_NAME = "com.rahil.newspoc.preferences"
 
         private val PREF_KEY_LAST_CACHE = "last_cache"
     }
 
-    private val bufferPref: SharedPreferences
+    private val newsAppPref: SharedPreferences
 
     init {
-        bufferPref = context.getSharedPreferences(PREF_BUFFER_PACKAGE_NAME, Context.MODE_PRIVATE)
+        newsAppPref = context.getSharedPreferences(PREF_NEWS_APP_PACKAGE_NAME, Context.MODE_PRIVATE)
     }
 
     /**
      * Store and retrieve the last time data was cached
      */
     var lastCacheTime: Long
-        get() = bufferPref.getLong(PREF_KEY_LAST_CACHE, 0)
-        set(lastCache) = bufferPref.edit().putLong(PREF_KEY_LAST_CACHE, lastCache).apply()
+        get() = newsAppPref.getLong(PREF_KEY_LAST_CACHE, 0)
+        set(lastCache) = newsAppPref.edit().putLong(PREF_KEY_LAST_CACHE, lastCache).apply()
 
 }

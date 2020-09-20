@@ -5,8 +5,8 @@
     <string name="label_error_result">Oops, there was an error fetching the data</string>
     <string name="button_try_again">Try again</string>
     <string-array name="news_spinner_list">
-        <item>NY TIMES</item>
-        <item>CNN</item>
         <item>BBC</item>
+        <item>CNN</item>
+        <item>NY TIMES</item>
     </string-array>
 </resources>

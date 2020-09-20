@@ -4,7 +4,7 @@ import io.reactivex.Flowable
 import com.rahil.newspoc.data.model.NewsDataEntity
 
 /**
- * Interface defining methods for the caching of Bufferroos. This is to be implemented by the
+ * Interface defining methods for the caching of New List. This is to be implemented by the
  * cache layer, using this interface as a way of communicating.
  */
 interface NewsRemote {

@@ -5,6 +5,7 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import com.rahil.newspoc.domain.executor.PostExecutionThread
+import com.rahil.newspoc.domain.executor.ThreadExecutor
 import com.rahil.newspoc.domain.repository.NewsRepository
 import com.rahil.newspoc.injection.module.TestApplicationModule
 import com.rahil.newspoc.injection.module.TestCacheModule
@@ -27,6 +28,8 @@ import javax.inject.Singleton
 interface TestApplicationComponent : ApplicationComponent {
 
     fun newsRepository(): NewsRepository
+
+    fun threadExecutor(): ThreadExecutor
 
     fun postExecutionThread(): PostExecutionThread
 

@@ -1,8 +1,8 @@
 package com.rahil.newspoc.test.util
 
 import android.content.res.Resources
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
@@ -43,7 +43,7 @@ open class RecyclerViewMatcher constructor(var recyclerViewId: Int) {
                     val recyclerView = view.rootView.findViewById<RecyclerView>(recyclerViewId)
                             as RecyclerView
                     if (recyclerView != null && recyclerView.id == recyclerViewId) {
-                        childView = recyclerView.findViewHolderForAdapterPosition(position).itemView
+                        childView = recyclerView.findViewHolderForAdapterPosition(position)!!.itemView
                     } else {
                         return false
                     }

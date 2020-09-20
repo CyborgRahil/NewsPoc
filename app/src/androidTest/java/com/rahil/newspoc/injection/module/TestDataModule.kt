@@ -21,8 +21,12 @@ abstract class TestDataModule {
         fun provideNewsRepository(): NewsRepository {
             return mock()
         }
-    }
 
-    @Binds
-    abstract fun bindThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor
+        @Provides
+        @JvmStatic
+        @Singleton
+        fun bindThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor {
+            return mock()
+        }
+    }
 }

@@ -1,6 +1,6 @@
 package com.rahil.newspoc.presentation.news
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockito_kotlin.*
 import com.rahil.newspoc.domain.interactor.news.GetBbcNews
 import io.reactivex.subscribers.DisposableSubscriber

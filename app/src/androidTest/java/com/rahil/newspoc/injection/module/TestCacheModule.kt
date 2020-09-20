@@ -1,7 +1,7 @@
 package com.rahil.newspoc.injection.module
 
 import android.app.Application
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import com.nhaarman.mockito_kotlin.mock
 import dagger.Module
 import dagger.Provides

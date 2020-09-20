@@ -1,6 +1,6 @@
 package com.rahil.newspoc.cache
 
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import com.rahil.newspoc.cache.db.NewsDatabase
 import com.rahil.newspoc.cache.mapper.NewsEntityMapper
 import com.rahil.newspoc.cache.model.NewsEntity

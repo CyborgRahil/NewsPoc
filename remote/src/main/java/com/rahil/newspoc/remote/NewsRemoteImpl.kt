@@ -19,6 +19,7 @@ class NewsRemoteImpl @Inject constructor(private val newsService: NewsService,
      * Retrieve a list of [NewsDataEntity] instances from the [NewsService].
      */
     override fun getNews(newsType:String): Flowable<List<NewsDataEntity>> {
+        // We are putting api key here for testing purpose. Normally it is there in gradle properties
         return newsService.getNews(newsType,"11df8b9ece1648f3868747eb275a9900")
                 .map { it.articles }
                 .map {
