@@ -9,8 +9,6 @@ import io.reactivex.subscribers.DisposableSubscriber
 import com.rahil.newspoc.domain.executor.PostExecutionThread
 import com.rahil.newspoc.domain.executor.ThreadExecutor
 
-
-
 /**
  * Abstract class for a UseCase that returns an instance of a [Single].
  */
