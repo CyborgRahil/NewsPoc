@@ -4,8 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
-import kotlinx.android.synthetic.main.view_error.view.*
-import com.rahil.newspoc.R
+import com.rahil.newspoc.databinding.ViewErrorBinding
 
 /**
  * Widget used to display an empty state to the user
@@ -28,8 +27,8 @@ class ErrorView : RelativeLayout {
     }
 
     private fun init() {
-        LayoutInflater.from(context).inflate(R.layout.view_error, this)
-        button_try_again.setOnClickListener { errorListener?.onTryAgainClicked() }
+        val binding = ViewErrorBinding.inflate(LayoutInflater.from(context), this)
+        binding.buttonTryAgain.setOnClickListener { errorListener?.onTryAgainClicked() }
     }
 
 }

@@ -7,41 +7,40 @@ allprojects {
 
 ext {
     //Android
-    androidBuildToolsVersion = "29.0.2"
+    androidBuildToolsVersion = "30.0.2"
     androidMinSdkVersion = 17
-    androidTargetSdkVersion = 29
-    androidCompileSdkVersion = 29
+    androidTargetSdkVersion = 30
+    androidCompileSdkVersion = 30
 
     //Libraries
-    kotlinVersion = '1.3.61'
-    recyclerViewVersion = '1.1.0'
+    kotlinVersion = '1.5.20'
+    recyclerViewVersion = '1.2.1'
     rxJavaVersion = '2.2.4'
     rxKotlinVersion = '2.4.0'
     rxAndroidVersion = '2.1.1'
     javaxAnnotationVersion = '1.0'
     javaxInjectVersion = '1'
     gsonVersion = '2.8.6'
-    okHttpVersion = '3.12.0'
+    okHttpVersion = '4.5.0'
     androidAnnotationsVersion = '1.1.0'
-    retrofitVersion = '2.4.0'
-    roomVersion = '2.2.5'
-    appCompatVersion = '1.2.0'
-    androidSupportV4 = '1.0.0'
-    designVersion = '1.3.0-alpha02'
-    timberVersion = '4.5.1'
+    retrofitVersion = '2.8.1'
+    roomVersion = '2.2.0'
+    appCompatVersion = '1.3.1'
+    designVersion = '1.4.0'
+    timberVersion = '4.7.1'
     glideVersion = '4.11.0'
-    daggerVersion = '2.20'
-    contraintLayoutVersion = '2.0.1'
-    viewModelKtxVersion = '2.2.0'
-    liveDataKtxVersion  = '2.2.0'
+    daggerVersion = '2.23.2'
+    contraintLayoutVersion = '2.1.0'
+    viewModelKtxVersion = '2.3.1'
+    liveDataKtxVersion  = '2.3.1'
     lifeCycleExtensionVersion = '2.2.0'
 
     //Testing
-    robolectricVersion = '3.8'
+    robolectricVersion = '4.5.1'
     androidXCoreTestingVersion = '2.1.0'
     jUnitVersion = '4.12'
     assertJVersion = '3.8.0'
-    mockitoVersion = '1.9.5'
+    mockitoVersion = '3.2.0'
     dexmakerVersion = '1.0'
     espressoVersion = '3.1.0'
     testingSupportLibVersion = '0.1'
@@ -49,7 +48,7 @@ ext {
     mockitoAndroidVersion = '2.8.47'
     androidSupportRunnerVersion = '1.1.0'
     androidSupportRulesVersion = '1.1.0'
-    dexmakerMockitoversion = '2.2.0'
+    rxIdler = '0.9.0'
 
     domainDependencies = [
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
@@ -61,7 +60,8 @@ ext {
     domainTestDependencies = [
             junit:              "junit:junit:${jUnitVersion}",
             mockito:            "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
-            assertj:            "org.assertj:assertj-core:${assertJVersion}"
+            assertj:            "org.assertj:assertj-core:${assertJVersion}",
+            mockitoInline:  "org.mockito:mockito-inline:$mockitoVersion"
     ]
 
     presentationDependencies = [
@@ -91,7 +91,8 @@ ext {
             assertj:            "org.assertj:assertj-core:${assertJVersion}",
             mockito:            "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
             robolectric:        "org.robolectric:robolectric:${robolectricVersion}",
-            androidXCoreTesting: "androidx.arch.core:core-testing:${androidXCoreTestingVersion}"
+            androidXCoreTesting: "androidx.arch.core:core-testing:${androidXCoreTestingVersion}",
+            mockitoInline:  "org.mockito:mockito-inline:$mockitoVersion"
     ]
 
     dataDependencies = [
@@ -116,7 +117,8 @@ ext {
             kotlinJUnit:        "org.jetbrains.kotlin:kotlin-test-junit:${kotlin_version}",
             assertj:            "org.assertj:assertj-core:${assertJVersion}",
             mockito:            "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
-            robolectric:        "org.robolectric:robolectric:${robolectricVersion}"
+            robolectric:        "org.robolectric:robolectric:${robolectricVersion}",
+            mockitoInline:  "org.mockito:mockito-inline:$mockitoVersion"
     ]
 
     cacheDependencies = [
@@ -141,7 +143,8 @@ ext {
             robolectric:        "org.robolectric:robolectric:${robolectricVersion}",
             roomTesting:        "androidx.room:room-testing:${roomVersion}",
             supportRunner:      "androidx.test:runner:${androidSupportRunnerVersion}",
-            supportRules:       "androidx.test:rules:${androidSupportRulesVersion}"
+            supportRules:       "androidx.test:rules:${androidSupportRulesVersion}",
+            mockitoInline:  "org.mockito:mockito-inline:$mockitoVersion"
     ]
 
     remoteDependencies = [
@@ -166,7 +169,8 @@ ext {
             assertj:            "org.assertj:assertj-core:${assertJVersion}",
             mockito:            "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
             supportRunner:      "androidx.test:runner:${androidSupportRunnerVersion}",
-            supportRules:       "androidx.test:rules:${androidSupportRulesVersion}"
+            supportRules:       "androidx.test:rules:${androidSupportRulesVersion}",
+            mockitoInline:  "org.mockito:mockito-inline:$mockitoVersion"
     ]
 
     mobileUiDependencies = [
@@ -179,7 +183,6 @@ ext {
             javaxAnnotation:    "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
             javaxInject:        "javax.inject:javax.inject:${javaxInjectVersion}",
             androidAnnotations: "androidx.annotation:annotation:${androidAnnotationsVersion}",
-            androidSupportV4:   "androidx.legacy:legacy-support-v4:${androidSupportV4}",
             appCompatV7:        "androidx.appcompat:appcompat:${appCompatVersion}",
             supportRecyclerView:"androidx.recyclerview:recyclerview:${recyclerViewVersion}",
             supportDesign:      "com.google.android.material:material:${designVersion}",
@@ -190,7 +193,7 @@ ext {
             roomCompiler:       "androidx.room:room-compiler:${roomVersion}",
             roomRxJava:         "androidx.room:room-rxjava2:${roomVersion}",
             constraintLayout:   "com.android.support.constraint:constraint-layout:${contraintLayoutVersion}",
-            lifeCycleExtension: "androidx.lifecycle:lifecycle-extensions:${lifeCycleExtensionVersion}"
+            lifeCycleExtension: "androidx.lifecycle:lifecycle-extensions:${lifeCycleExtensionVersion}",
     ]
 
     mobileUiTestDependencies = [
@@ -203,7 +206,9 @@ ext {
             mockitoAndroid:     "org.mockito:mockito-android:${mockitoAndroidVersion}",
             espressoCore:       "androidx.test.espresso:espresso-core:${espressoVersion}",
             espressoIntents:    "androidx.test.espresso:espresso-intents:${espressoVersion}",
-            espressoContrib:    "androidx.test.espresso:espresso-contrib:${espressoVersion}"
+            espressoContrib:    "androidx.test.espresso:espresso-contrib:${espressoVersion}",
+            rxIdler        : "com.squareup.rx.idler:rx2-idler:$rxIdler",
+            mockitoInline:  "org.mockito:mockito-inline:$mockitoVersion"
     ]
 
 }

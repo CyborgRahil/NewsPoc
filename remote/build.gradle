@@ -23,6 +23,7 @@ dependencies {
     testImplementation remoteTestDependencies.kotlinJUnit
     testImplementation remoteTestDependencies.mockito
     testImplementation remoteTestDependencies.assertj
+    testImplementation remoteTestDependencies.mockitoInline
 
-    compile project(':data')
+    implementation project(':data')
 }

@@ -8,6 +8,7 @@ import com.rahil.newspoc.data.executor.JobExecutor
 import com.rahil.newspoc.domain.executor.ThreadExecutor
 import com.rahil.newspoc.domain.repository.NewsRepository
 import javax.inject.Singleton
+import io.reactivex.schedulers.Schedulers
 
 @Module
 abstract class TestDataModule {
@@ -26,7 +27,7 @@ abstract class TestDataModule {
         @JvmStatic
         @Singleton
         fun bindThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor {
-            return mock()
+            return jobExecutor
         }
     }
 }

@@ -1,10 +1,44 @@
+# Android Studio stuff
 *.iml
-.gradle
+.idea
 /local.properties
+/.idea/caches
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+
+# MacOS stuff
 .DS_Store
-/build
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+
+# Gradle files
+.gradle/
+.gradle/**
+build/
+/*/build/
+/*/release/
+
+# Local configuration file
+local.properties
+build.xml
+gradle.properties
+
+#Android Studio Layout Inspector
 /captures
+
+# JNI
+**/obj
+**/libs
 .externalNativeBuild
+.cxx
+
+#Hprof
+*.hprof

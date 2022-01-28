@@ -68,6 +68,7 @@ dependencies {
     testImplementation presentationTestDependencies.assertj
     testImplementation presentationTestDependencies.robolectric
     testImplementation presentationTestDependencies.androidXCoreTesting
+    testImplementation presentationTestDependencies.mockitoInline
 
-    compile project(':domain')
+    implementation project(':domain')
 }

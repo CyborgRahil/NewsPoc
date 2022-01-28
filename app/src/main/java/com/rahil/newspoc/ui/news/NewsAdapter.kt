@@ -10,7 +10,6 @@ import com.bumptech.glide.Glide
 import com.rahil.newspoc.ui.model.NewsViewModel
 import com.rahil.newspoc.R
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.item_news.*
 
 class NewsAdapter @Inject constructor(): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 

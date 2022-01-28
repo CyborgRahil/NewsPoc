@@ -26,11 +26,19 @@ android {
     }
 
     packagingOptions {
-        exclude 'LICENSE.txt'
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE.txt'
         exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'NOTICE.txt'
+        exclude 'NOTICE'
+        exclude 'LICENSE.txt'
+        exclude 'LICENSE'
+        exclude '**/attach_hotspot_windows.dll'
+        exclude 'META-INF/licenses/**'
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
     }
 
     lintOptions {
@@ -64,6 +72,6 @@ dependencies {
     testImplementation cacheTestDependencies.mockito
     testImplementation cacheTestDependencies.assertj
     testImplementation cacheTestDependencies.robolectric
-  //  testImplementation cacheTestDependencies.archTesting
     testImplementation cacheTestDependencies.roomTesting
+    testImplementation cacheTestDependencies.mockitoInline
 }

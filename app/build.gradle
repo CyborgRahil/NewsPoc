@@ -1,7 +1,8 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -35,17 +36,29 @@ android {
     }
 
     packagingOptions {
-        exclude 'LICENSE.txt'
-        exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE.txt'
         exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'NOTICE.txt'
+        exclude 'NOTICE'
+        exclude 'LICENSE.txt'
+        exclude 'LICENSE'
+        exclude '**/attach_hotspot_windows.dll'
+        exclude 'META-INF/licenses/**'
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
     }
 
     lintOptions {
         quiet true
         abortOnError false
         ignoreWarnings true
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 }
 
@@ -68,6 +81,7 @@ dependencies {
     implementation project(':cache')
     implementation project(':remote')
     implementation project(':presentation')
+    implementation project(':domain')
 
     implementation mobileUiDependencies.javaxAnnotation
 
@@ -75,7 +89,6 @@ dependencies {
     implementation mobileUiDependencies.javaxInject
     implementation mobileUiDependencies.rxKotlin
     implementation mobileUiDependencies.androidAnnotations
-    implementation mobileUiDependencies.androidSupportV4
     implementation mobileUiDependencies.appCompatV7
     implementation mobileUiDependencies.supportRecyclerView
     implementation mobileUiDependencies.supportDesign
@@ -105,4 +118,6 @@ dependencies {
     androidTestImplementation mobileUiTestDependencies.supportRules
     kaptTest mobileUiDependencies.daggerCompiler
     kaptAndroidTest mobileUiDependencies.daggerCompiler
+    androidTestImplementation mobileUiTestDependencies.rxIdler
+    testImplementation mobileUiTestDependencies.mockitoInline
 }

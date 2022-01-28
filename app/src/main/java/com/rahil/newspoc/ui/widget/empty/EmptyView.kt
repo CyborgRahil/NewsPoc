@@ -4,8 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.RelativeLayout
-import kotlinx.android.synthetic.main.view_empty.view.*
-import com.rahil.newspoc.R
+import com.rahil.newspoc.databinding.ViewEmptyBinding
 
 /**
  * Widget used to display an empty state to the user
@@ -28,8 +27,8 @@ class EmptyView: RelativeLayout {
     }
 
     private fun init() {
-        LayoutInflater.from(context).inflate(R.layout.view_empty, this)
-        button_check_again.setOnClickListener { emptyListener?.onCheckAgainClicked() }
+        val binding = ViewEmptyBinding.inflate(LayoutInflater.from(context), this)
+        binding.buttonCheckAgain.setOnClickListener { emptyListener?.onCheckAgainClicked() }
     }
 
 }

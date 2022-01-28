@@ -5,9 +5,9 @@ import android.view.View
 import android.widget.AdapterView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rahil.newspoc.R
+import com.rahil.newspoc.databinding.ActivityNewsBinding
 import dagger.android.AndroidInjection
 import com.rahil.newspoc.presentation.ViewModelFactory
 import com.rahil.newspoc.presentation.news.NewsViewModel
@@ -18,7 +18,6 @@ import com.rahil.newspoc.presentation.utility.NewsConstant
 import com.rahil.newspoc.ui.widget.empty.EmptyListener
 import com.rahil.newspoc.ui.widget.error.ErrorListener
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.activity_news.*
 
 class NewsActivity : AppCompatActivity() {
 
@@ -28,14 +27,18 @@ class NewsActivity : AppCompatActivity() {
     lateinit var mapper: NewsMapper
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
+
     private lateinit var newsViewModel: NewsViewModel
+
+    private lateinit var activityNewsBinding: ActivityNewsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_news)
+        activityNewsBinding = ActivityNewsBinding.inflate(layoutInflater)
+        setContentView(activityNewsBinding.root)
         AndroidInjection.inject(this)
 
-        newsViewModel = ViewModelProviders.of(this, viewModelFactory)
+        newsViewModel = ViewModelProvider(this, viewModelFactory)
                 .get(NewsViewModel::class.java)
 
         setupBrowseRecycler()
@@ -44,7 +47,7 @@ class NewsActivity : AppCompatActivity() {
     }
 
     private fun spinnerClickListener() {
-        newsSpinnerList.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        activityNewsBinding.newsSpinnerList.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
@@ -73,8 +76,8 @@ class NewsActivity : AppCompatActivity() {
     }
 
     private fun setupBrowseRecycler() {
-        recyclerNews.layoutManager = LinearLayoutManager(this)
-        recyclerNews.adapter = newsAdapter
+        activityNewsBinding.recyclerNews.layoutManager = LinearLayoutManager(this)
+        activityNewsBinding.recyclerNews.adapter = newsAdapter
     }
 
     private fun handleDataState(resourceState: ResourceState, data: List<NewsView>?,
@@ -87,20 +90,20 @@ class NewsActivity : AppCompatActivity() {
     }
 
     private fun setupScreenForLoadingState() {
-        progress.visibility = View.VISIBLE
-        recyclerNews.visibility = View.GONE
-        view_empty.visibility = View.GONE
-        view_error.visibility = View.GONE
+        activityNewsBinding.progress.visibility = View.VISIBLE
+        activityNewsBinding.recyclerNews.visibility = View.GONE
+        activityNewsBinding.viewEmpty.visibility = View.GONE
+        activityNewsBinding.viewError.visibility = View.GONE
     }
 
     private fun setupScreenForSuccess(data: List<NewsView>?) {
-        view_error.visibility = View.GONE
-        progress.visibility = View.GONE
+        activityNewsBinding.viewError.visibility = View.GONE
+        activityNewsBinding.progress.visibility = View.GONE
         if (data != null && data.isNotEmpty()) {
             updateListView(data)
-            recyclerNews.visibility = View.VISIBLE
+            activityNewsBinding. recyclerNews.visibility = View.VISIBLE
         } else {
-            view_empty.visibility = View.VISIBLE
+            activityNewsBinding.viewEmpty.visibility = View.VISIBLE
         }
     }
 
@@ -110,15 +113,15 @@ class NewsActivity : AppCompatActivity() {
     }
 
     private fun setupScreenForError(message: String?) {
-        progress.visibility = View.GONE
-        recyclerNews.visibility = View.GONE
-        view_empty.visibility = View.GONE
-        view_error.visibility = View.VISIBLE
+        activityNewsBinding.progress.visibility = View.GONE
+        activityNewsBinding.recyclerNews.visibility = View.GONE
+        activityNewsBinding.viewEmpty.visibility = View.GONE
+        activityNewsBinding.viewError.visibility = View.VISIBLE
     }
 
     private fun setupViewListeners() {
-        view_empty.emptyListener = emptyListener
-        view_error.errorListener = errorListener
+        activityNewsBinding.viewEmpty.emptyListener = emptyListener
+        activityNewsBinding.viewError.errorListener = errorListener
     }
 
     private val emptyListener = object : EmptyListener {
@@ -134,7 +137,7 @@ class NewsActivity : AppCompatActivity() {
     }
 
     private fun fetchNewsUsingSpinnerSelection() {
-        when (newsSpinnerList.selectedItemPosition) {
+        when (activityNewsBinding.newsSpinnerList.selectedItemPosition) {
             0 -> newsViewModel.fetchNews(NewsConstant.BBC)
             1 -> newsViewModel.fetchNews(NewsConstant.CNN)
             2 -> newsViewModel.fetchNews(NewsConstant.NYTIMES)

@@ -20,7 +20,7 @@ import com.rahil.newspoc.test.util.RecyclerViewMatcher
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-
+import com.rahil.newspoc.presentation.utility.NewsConstant
 
 @RunWith(AndroidJUnit4::class)
 class NewsActivityTest {
@@ -71,7 +71,7 @@ class NewsActivityTest {
     }
 
     private fun stubNewsRepositoryGetNewss(single: Flowable<List<News>>) {
-        whenever(TestApplication.appComponent().newsRepository().getNewsList("bbc"))
+        whenever(TestApplication.appComponent().newsRepository().getNewsList(NewsConstant.BBC))
                 .thenReturn(single)
     }
 
